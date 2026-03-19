@@ -1,6 +1,7 @@
 # relatorio-atvrafael2  
 
 Relatório da Atividade – Soma Paralela
+Pedro Henrique Ayres de Sousa, Noturno Sistemas de Informação Aguas Claras
 
 1. Descrição do Problema
 
@@ -96,4 +97,62 @@ Onde:
 
 p = número de threads ou processos
 
+6. Tabela de Resultados
 
+![speedup](speedup.png)
+
+7. Gráfico de Tempo de Execução
+   
+![tabspeedup](tabspeedup.png)
+
+8. Gráfico de Speedup
+
+![tabspeedup](tabspeedup.png)
+
+9. Gráfico de Eficiência
+
+![tabeficiencia](tabeficiencia.png)
+
+10. Análise dos Resultados
+
+O speedup obtido não foi próximo do ideal. Na verdade, a versão paralela apresentou desempenho inferior à versão serial.
+
+A aplicação não apresentou boa escalabilidade, pois o tempo de execução aumentou com o número de threads.
+
+A eficiência começou a cair já a partir de 2 threads.
+
+Isso ocorre porque:
+
+O número de threads ultrapassa o ganho possível devido ao GIL do Python
+
+Há overhead na criação e gerenciamento de threads
+
+A operação de soma é muito simples e rápida
+
+Houve overhead significativo de paralelização, tornando a abordagem paralela ineficiente.
+
+Também pode haver:
+
+contenção de memória
+
+custo de divisão dos dados
+
+sincronização implícita
+
+11. Conclusão
+
+O paralelismo não trouxe ganho de desempenho para este problema.
+
+A versão serial foi mais eficiente, pois a operação realizada é simples e já otimizada.
+
+O melhor desempenho foi obtido com apenas 1 thread.
+
+O programa não escala bem com o aumento do número de threads.
+
+Melhorias possíveis:
+
+utilizar multiprocessing
+
+implementar em linguagens sem GIL (como C ou Java)
+
+testar com problemas mais complexos
